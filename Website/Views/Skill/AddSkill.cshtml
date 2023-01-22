@@ -1,4 +1,31 @@
 ﻿
-@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+@{
+    ViewData["Title"] = "AddSkill";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-header border-0">
+    <h3>
+        Yetenek Ekleme Sayfası
+    </h3>
+    <br />
+    <form method="post">
+  <div class="form-group">
+    <label >
+        <strong>Yetenek Ekle</strong>
+
+       </label>
+    <input type="text" class="form-control" name="Title" >
+  </div>
+  <div class="form-group">
+    <label >
+
+        <strong>Değer</strong>
+        </label>
+    <input type="text" class="form-control" name="value" >
+  </div>
+
+  <button  class="btn btn-primary">Kaydet</button>
+</form>
+</div>
+

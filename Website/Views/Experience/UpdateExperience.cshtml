@@ -3,18 +3,19 @@
 
 
 @{
-    ViewData["Title"] = "AddExperience";
+    ViewData["Title"] = "UpdateExperience";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 
 <div class="card-header border-0">
     <h3>
-        Deneyim Ekleme Sayfası
+        Deneyim Düzenleme Sayfası
     </h3>
 </div>
-@using (Html.BeginForm("AddExperience", "Experience", FormMethod.Post))
+@using (Html.BeginForm("UpdateExperience", "Experience", FormMethod.Post))
 {
+    @Html.HiddenFor(x=>x.Name,new{@class="form-control"})
     <br />
 
     @Html.Label("Deneyim Başlığı")
@@ -30,7 +31,7 @@
     <label>Açıklama</label>
     @Html.TextBoxFor(x=>x.Description,new {@class = "form-control"})
 
-    <button class="btn btn-success">Kaydet</button>
+    <button class="btn btn-outline-success">Güncelle</button>
 
 
 }

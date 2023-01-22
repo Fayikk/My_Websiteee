@@ -1,0 +1,61 @@
+﻿@model EntityLayer.Concrete.Portfolio
+
+
+@{
+    ViewData["Title"] = "UpdatePortfolio";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-header border-0">
+    <h3>
+        Proje Düzenleme Sayfası
+    </h3>
+</div>
+@using (Html.BeginForm("UpdatePortfolio", "Portfolio", FormMethod.Post))
+{
+    @Html.Label("Proje Başlığı")
+
+
+    <br /> <br />
+
+    
+    @Html.HiddenFor(x=>x.PortfolioId,new{@class="form-control"})
+    <br />
+    <h1>
+        <strong>
+            Image Url
+        </strong>
+    </h1>
+
+
+
+    @Html.TextBoxFor(x=>x.Name,new {@class = "form-control"})
+    <br />
+
+    <h1>
+        <strong>
+            Image Url
+        </strong>
+    </h1>
+    @Html.TextBoxFor(x=>x.ImageUrl,new {@class = "form-control"})
+    <br />
+      <h1>
+        <strong>
+            Image Url2
+        </strong>
+    </h1>
+    @Html.TextBoxFor(x=>x.ImageUrl2,new {@class = "form-control"})
+    <br />
+    <h1>
+        <strong>
+            Project Url
+        </strong>
+    </h1>
+    @Html.TextBoxFor(x=>x.ProjectUrl,new {@class = "form-control"})
+    <br />
+
+    <button class="btn btn-outline-success">Güncelle</button>
+
+
+}
+
