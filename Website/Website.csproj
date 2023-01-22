@@ -6,6 +6,8 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+	  <PackageReference Include="FluentValidation.AspNetCore" Version="10.3.6" />
+
   </ItemGroup>
 
   <ItemGroup>

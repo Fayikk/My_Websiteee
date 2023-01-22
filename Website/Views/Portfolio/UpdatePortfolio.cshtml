@@ -20,6 +20,8 @@
 
     
     @Html.HiddenFor(x=>x.PortfolioId,new{@class="form-control"})
+    ;
+
     <br />
     <h1>
         <strong>
@@ -30,6 +32,9 @@
 
 
     @Html.TextBoxFor(x=>x.Name,new {@class = "form-control"})
+    @Html.ValidationMessageFor(x=>x.Name,null,new {@class="text-danger"})
+
+
     <br />
 
     <h1>
@@ -38,6 +43,9 @@
         </strong>
     </h1>
     @Html.TextBoxFor(x=>x.ImageUrl,new {@class = "form-control"})
+    @Html.ValidationMessageFor(x=>x.ImageUrl,null,new {@class="text-danger"})
+    
+
     <br />
       <h1>
         <strong>
@@ -45,6 +53,8 @@
         </strong>
     </h1>
     @Html.TextBoxFor(x=>x.ImageUrl2,new {@class = "form-control"})
+    @Html.ValidationMessageFor(x=>x.ImageUrl2,null,new {@class="text-danger"})
+
     <br />
     <h1>
         <strong>
@@ -52,6 +62,8 @@
         </strong>
     </h1>
     @Html.TextBoxFor(x=>x.ProjectUrl,new {@class = "form-control"})
+    @Html.ValidationMessageFor(x=>x.ProjectUrl,null,new {@class="text-danger"})
+
     <br />
 
     <button class="btn btn-outline-success">Güncelle</button>

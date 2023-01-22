@@ -1,6 +1,8 @@
 ﻿using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Website.Controllers
@@ -20,17 +22,38 @@ namespace Website.Controllers
         [HttpGet]
         public IActionResult AddPortfolio()
         {
-            ViewBag.v1 = "Proeje Listeleme";
-            ViewBag.v2 = "Yetenekler";
-            ViewBag.v3 = "Proje Listeleme";
+            ViewBag.v1 = "Proeje Ekleme";
+            ViewBag.v2 = "Projeler";
+            ViewBag.v3 = "Proje Ekleme";
             return View();
         }
 
         [HttpPost]
         public IActionResult AddPortfolio(Portfolio p)
         {
-            portfolioManager.TAdd(p);
-            return RedirectToAction("Index");
+
+           
+
+            PortfolioValidator validations = new PortfolioValidator();
+            ValidationResult results = validations.Validate(p);
+
+            if (results.IsValid)
+            {
+                portfolioManager.TAdd(p);
+                return RedirectToAction("Index");
+
+
+            }
+            else
+            {
+                foreach(var item in results.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+
+            return View();
+
 
         }
 
@@ -58,9 +81,26 @@ namespace Website.Controllers
         [HttpPost]
         public IActionResult UpdatePortfolio(Portfolio portfolio)
         {
-           
-            portfolioManager.TUpdate(portfolio);
-            return RedirectToAction("Index");
+
+            PortfolioValidator validations = new PortfolioValidator();
+            ValidationResult results = validations.Validate(portfolio);
+            if (results.IsValid)
+            {
+                portfolioManager.TUpdate(portfolio);
+                return RedirectToAction("Index");
+
+
+            }
+            else
+            {
+                foreach (var item in results.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+
+            return View();
+         
         }
 
 
