@@ -35,5 +35,10 @@ namespace Website.Controllers
         {
             return PartialView();
         }
+
+        public PartialViewResult NewSideBar()
+        {
+            return PartialView();
+        }
     }
 }

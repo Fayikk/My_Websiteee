@@ -4,7 +4,7 @@
 
 @{
     ViewData["Title"] = "AddExperience";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
 
@@ -29,6 +29,7 @@
     <br />
     <label>Açıklama</label>
     @Html.TextBoxFor(x=>x.Description,new {@class = "form-control"})
+    <br />
 
     <button class="btn btn-success">Kaydet</button>
 
