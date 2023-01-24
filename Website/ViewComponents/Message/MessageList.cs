@@ -9,23 +9,16 @@ namespace Website.ViewComponents
     public class MessageList:ViewComponent
     {
 
-        MessageManager messageManager = new MessageManager(new EfMessageDal());
+        UserMessageManager messageManager = new UserMessageManager(new EfUserMessageDal());
 
-        [HttpGet]
+     
         public IViewComponentResult Invoke()
         {
-            return View();
+            var result = messageManager.GetUserMessageWithUserService();
+
+            return View(result);
         }
 
 
-        //[HttpPost]
-        //public IViewComponentResult Invoke(Message message)
-        //{
-
-        //    message.Date = Convert.ToDateTime(DateTime.Now.ToShortDateString());
-        //    message.Status = true;
-        //    messageManager.TAdd(message);
-        //    return View();
-        //}
     }
 }
