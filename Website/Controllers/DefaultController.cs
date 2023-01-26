@@ -6,6 +6,7 @@ using System;
 
 namespace Website.Controllers
 {
+
     public class DefaultController : Controller
     {
         public IActionResult Index()
