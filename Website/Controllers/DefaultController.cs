@@ -32,6 +32,7 @@ namespace Website.Controllers
             message.Date = Convert.ToDateTime(DateTime.Now.ToShortDateString());
             message.Status = true;
             messageManager.TAdd(message);
+            
             return PartialView();
         }
     }
