@@ -7,6 +7,8 @@ using Website.Areas.Writer.Models;
 namespace Website.Areas.Writer.Controllers
 {
     [Area("Writer")]
+    [Route("Writer/[controller]/[action]")]
+
     public class RegisterController : Controller
     {
 

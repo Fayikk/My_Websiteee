@@ -17,7 +17,7 @@ namespace BusinessLayer.Concrete
 
         private IMessageDal _messageDal;
        
-        public MessageManager(EfMessageDal messageDal)
+        public MessageManager(IMessageDal messageDal)
         {
             _messageDal = messageDal;   
         }

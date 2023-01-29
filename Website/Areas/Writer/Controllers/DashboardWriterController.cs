@@ -9,6 +9,7 @@ using System.Xml.Linq;
 namespace Website.Areas.Writer.Controllers
 {
     [Area("Writer")]
+    [Route("Writer/[controller]/[action]")]
 
     public class DashboardWriterController : Controller
     {
@@ -31,11 +32,11 @@ namespace Website.Areas.Writer.Controllers
             ViewBag.v5 = document.Descendants("temperature").ElementAt(0).Attribute("value").Value;
             //Statistic
             Context c = new Context();
-            ViewBag.v1 = 0;
+            ViewBag.v1 = c.WriterMessages.Where(x => x.Receiver == result.Email).Count(); ;
             ViewBag.v2 = c.Announcements.Count();
-            ViewBag.v3 = 0;
+            ViewBag.v3 = c.Users.Count() - 1;
             ViewBag.v4 = c.Skills.Count();
-
+          
 
             return View();
         }

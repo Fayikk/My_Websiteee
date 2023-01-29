@@ -34,7 +34,7 @@ namespace Website.Areas.Writer.Controllers
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index","Default");
+                    return RedirectToAction("Index","DashboardWriter");
                 }
                 else
                 {
@@ -49,11 +49,10 @@ namespace Website.Areas.Writer.Controllers
 
         }
 
-        [HttpPost]
         public async Task<IActionResult> Logout()
         {
            await _signInManager.SignOutAsync();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index","Login");
         }
     }
 }
