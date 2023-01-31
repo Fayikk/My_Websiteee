@@ -43,6 +43,8 @@ namespace BusinessLayer.Concrete
             return _messageDal.GetAll();
         }
 
+       
+
         public void TUpdate(Message entity)
         {
             _messageDal.Update(entity);
