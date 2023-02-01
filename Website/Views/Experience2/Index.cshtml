@@ -1,0 +1,64 @@
+﻿@using EntityLayer.Concrete
+@model List<Experience>
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="col-md-6">
+    <div class="p-2">
+        <button type="button" id="btngetlistall" class="btn btn-outline-primary">Verileri Getir</button>
+        <button type="button" id="btnadd" class="btn btn-outline-info">Kaydet</button>
+    </div>
+</div>
+
+<h4 class="text-center">Deneyim Listesi</h4>
+<div class="p-2" id="listexperience">
+    buraya veriler gelecek
+</div>
+
+
+<br />
+<div class="col-md-12">
+    <input type="text" class="form-control" id="inpName" placeholder="Ad" />
+    <br />
+    <input type="text" class="form-control" id="inpsurname" placeholder="Soyad" />
+    <br />
+    <input type="text" class="form-control" id="inpusername" placeholder="Kullanıcı Adınız" />
+    <br />
+    <input type="text" class="form-control" id="inpmail" placeholder="Mail Adresiniz" />
+    <br />
+
+</div>
+
+
+@section scripts
+    {
+    <script>
+        $("#btngetlistall").click(function () {
+            $.ajax({
+                contentType: "application/json",
+                dataType: "json",
+                type: "Get",
+                url: "/Experience2/ListExperience/",
+
+                success: function (funk) {
+                    let values = jQuery.parseJSON(funk);
+                    console.log(values);
+
+                    let htmlst="<table class=table table-bordered> <tr> <th>  Id  </th> <th> Başlık </th> <th> Tarih </th> </tr> ";
+                    $.each(values,(index,value) => {
+                        htmlst+=`<tr> <td>${value.ExperienceId} </td> <td> ${value.Name} </td>  <td> ${value.Date}</td> </tr> `
+                    });
+                    
+                    htmlst+="</table>";
+                     $("#listexperience").html(htmlst);
+                    
+                }
+            });
+        });
+    </script>
+}
+    <script src="~/lib/jquery/dist/jquery.js"></script>
