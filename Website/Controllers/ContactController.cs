@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Website.Controllers
 {
+    
     public class ContactController : Controller
     {
         MessageManager messageManager = new MessageManager(new EfMessageDal());

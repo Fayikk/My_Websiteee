@@ -1,10 +1,12 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Website.Controllers
 {
+    [Authorize(Roles ="Admin")]
     public class ExperienceController : Controller
     {
         ExperienceManager experienceManager = new ExperienceManager(new EfExperienceDal());        
@@ -28,9 +30,6 @@ namespace Website.Controllers
             ViewBag.v3 = "Deneyim Ekleme";
             return View();
         } 
-
-
-
 
         [HttpPost]
         public IActionResult AddExperience(Experience experience)

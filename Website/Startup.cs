@@ -1,5 +1,6 @@
 using DataAccessLayer.Concrete;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -7,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 
 namespace Website
 {
@@ -33,6 +35,19 @@ namespace Website
                                .RequireAuthenticatedUser()
                                .Build();
                 config.Filters.Add(new AuthorizeFilter(policy));
+            });
+
+            services.AddAuthentication(
+
+                    CookieAuthenticationDefaults.AuthenticationScheme
+                ).AddCookie(x => x.LoginPath = "/AdminLogin/Index/");
+
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.Cookie.HttpOnly = true;
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(50);
+                options.AccessDeniedPath = "/ErrorPage/Index/";
+                options.LoginPath = "/Writer/Login/Index/";
             });
 
             services.AddMvc();

@@ -9,12 +9,12 @@ namespace Website.ViewComponents
     public class MessageList:ViewComponent
     {
 
-
+        MessageManager messageManager = new MessageManager(new EfMessageDal());
      
         public IViewComponentResult Invoke()
         {
-
-            return View();
+            var result = messageManager.TGetList();
+            return View(result);
         }
 
 
