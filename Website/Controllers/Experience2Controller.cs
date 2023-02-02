@@ -27,5 +27,20 @@ namespace Website.Controllers
             var values = JsonConvert.SerializeObject(p);
             return Json(values);
         }
+
+        public IActionResult GetById(int ExperienceId)
+        {
+            var values = experienceManager.TGetById(ExperienceId);
+            var result = JsonConvert.SerializeObject(values);
+            return Json(result);
+        }
+
+
+        public IActionResult DeleteExperience(int id)
+        {
+            var result = experienceManager.TGetById(id);
+            experienceManager.TDelete(result);
+            return Ok();
+        }
     }
 }
