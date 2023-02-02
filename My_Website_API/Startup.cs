@@ -1,12 +1,18 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using My_Website_API.BaseInterface;
+using My_Website_API.BusinessLayer.Abstract;
+using My_Website_API.BusinessLayer.Concrete;
+using My_Website_API.Dal.ApiContext;
+using My_Website_API.Dal.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +32,9 @@ namespace My_Website_API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            //services.AddIdentity<User, Role>().AddEntityFrameworkStores<ContextApi>();
+            services.AddSingleton<IProductService<Product>, ProductManager<Product>>().Reverse();
+            services.AddHttpContextAccessor();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

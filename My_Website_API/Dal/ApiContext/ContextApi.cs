@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using My_Website_API.Dal.Entity;
 
 namespace My_Website_API.Dal.ApiContext
 {
-    public class ContextApi : DbContext
+    public class ContextApi : IdentityDbContext<User>
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -12,5 +13,7 @@ namespace My_Website_API.Dal.ApiContext
 
 
         public DbSet<Category> Categories { get; set; }
+
+        public DbSet<Product> Products { get; set; }
     }
 }

@@ -51,18 +51,19 @@ namespace My_Website_API.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetByCategoryId([FromRoute]int id)
+        public IActionResult GetByCategoryId(int id)
         {
-            if (ModelState.IsValid)
+            var result = new ContextApi();
+            var value = result.Categories.Find(id);
+            if (value == null)
             {
-                var result = new ContextApi();
-                var value = result.Categories.Where(x => x.CategoryId == id).ToList();
-                return Ok(value);
+
+                return BadRequest("aranan eleman bulunamadı");
             }
             else
             {
-                return BadRequest("Aranan eleman bulunamadı");
-            }
+                return Ok(value);
+            };
 
           
         }
