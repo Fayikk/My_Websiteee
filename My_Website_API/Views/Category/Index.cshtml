@@ -1,0 +1,18 @@
+﻿@using My_Website_API.Dal.Entity
+@model List<Category>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+
+@foreach (var item in Model)
+{
+    <div class="table">
+        <a>
+            @item.CategoryName
+        </a>
+    </div>
+}

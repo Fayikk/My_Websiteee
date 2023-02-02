@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccessLayer", "DataAcce
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityLayer", "EntityLayer\EntityLayer.csproj", "{6C2ED83E-564E-431D-BD30-F29A12871272}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Website", "Website\Website.csproj", "{8DDB1AE4-41E3-417A-B943-4E5B264BC9EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Website", "Website\Website.csproj", "{8DDB1AE4-41E3-417A-B943-4E5B264BC9EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "My_Website_API", "My_Website_API\My_Website_API.csproj", "{3AC647AF-15BD-46F4-BAB7-B19E3412937D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{8DDB1AE4-41E3-417A-B943-4E5B264BC9EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DDB1AE4-41E3-417A-B943-4E5B264BC9EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DDB1AE4-41E3-417A-B943-4E5B264BC9EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AC647AF-15BD-46F4-BAB7-B19E3412937D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AC647AF-15BD-46F4-BAB7-B19E3412937D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AC647AF-15BD-46F4-BAB7-B19E3412937D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AC647AF-15BD-46F4-BAB7-B19E3412937D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
